@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import '../styles/header.css';
 import LogoArgentBank from '../assets/argentBankLogo.png';
 
 export default function Header() {
     return (
         <div>
             <nav className="main-nav">
-                <NavLink className="main-nav-logo" href="./index.html">
+                <NavLink className="main-nav-logo" to="/">
                     <img
                         className="main-nav-logo-image"
                         src={LogoArgentBank}
@@ -15,7 +14,7 @@ export default function Header() {
                     <h1 className="sr-only">Argent Bank</h1>
                 </NavLink>
                 <div>
-                    <NavLink className="main-nav-item" href="./sign-in.html">
+                    <NavLink className="main-nav-item" to="/Login">
                         <i className="fa fa-user-circle"></i>
                         Sign In
                     </NavLink>
