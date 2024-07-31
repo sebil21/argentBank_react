@@ -25,7 +25,7 @@ export default function Login() {
 
             // Stocker token dans le localStorage
             window.localStorage.setItem('token', token);
-            navigate('/UserLogin');
+            navigate('/UserConnected');
         } else {
             alert('Identifiant ou mot de passe incorrect.');
         }
