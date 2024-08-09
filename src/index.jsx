@@ -8,10 +8,20 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import UserConnected from './pages/UserConnected';
 
+// REDUX
+// import { Provider } from 'react-redux';
+// import { configureStore } from '@reduxjs/toolkit';
+
+// const store = configureStore({
+//     // reducer: rootReducer,
+//     devTools: true,
+// });
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 root.render(
     <React.StrictMode>
+        {/* <Provider store={store}> */}
         <Router>
             <Header />
             <Routes>
@@ -21,6 +31,7 @@ root.render(
             </Routes>
             <Footer />
         </Router>
+        {/* </Provider> */}
     </React.StrictMode>
 );
 //
