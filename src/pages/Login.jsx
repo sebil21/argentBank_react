@@ -1,33 +1,21 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import LoginAction from '../redux/actions/login.action';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const token = useSelector((state) => state.login.token);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(LoginAction(email, password));
 
-        const response = await fetch(
-            'http://localhost:3001/api/v1/user/login',
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            }
-        );
-
-        if (response.status === 200) {
-            // Récupérer API users/login
-            const user = await response.json();
-            const token = user.token;
-
-            // Stocker token dans le localStorage
-            window.localStorage.setItem('token', token);
+        if (token) {
             navigate('/UserConnected');
-        } else {
-            alert('Identifiant ou mot de passe incorrect.');
         }
     };
 
@@ -38,11 +26,10 @@ export default function Login() {
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="input-wrapper">
-                        <label htmlFor="email">Username</label>
+                        <label htmlFor="email">Email</label>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
-                            name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -52,7 +39,6 @@ export default function Login() {
                         <input
                             type="password"
                             id="password"
-                            name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
