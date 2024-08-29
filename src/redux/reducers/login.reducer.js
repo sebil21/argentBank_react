@@ -13,6 +13,11 @@ const LoginReducer = (state = initialState, action) => {
             ...state,
             token: null,
         };
+    } else if (action.type === 'LOGOUT') {
+        return {
+            ...state,
+            token: null,
+        };
     } else {
         return state;
     }

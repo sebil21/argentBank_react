@@ -1,15 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { LogoutAction } from '../redux/actions/login.action';
 import LogoArgentBank from '../assets/argentBankLogo.png';
-import { useSelector } from 'react-redux';
 
 export default function Header() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const token = useSelector((state) => state.login.token);
 
     const handleSignOut = () => {
         window.localStorage.removeItem('token');
+        dispatch(LogoutAction());
         navigate('/');
     };
+
     return (
         <div>
             <nav className="main-nav">

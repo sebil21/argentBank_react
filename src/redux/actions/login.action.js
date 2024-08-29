@@ -27,3 +27,10 @@ export const LoginAction = (email, password) => {
     };
 };
 export default LoginAction;
+
+// Déconnexion
+export const LogoutAction = () => {
+    return {
+        type: 'LOGOUT',
+    };
+};
