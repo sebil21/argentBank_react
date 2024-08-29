@@ -1,4 +1,4 @@
-export default function EditUser() {
+export default function User() {
     return (
         <div className="header">
             <h1>
