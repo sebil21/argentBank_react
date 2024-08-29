@@ -1,9 +1,10 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import LogoArgentBank from '../assets/argentBankLogo.png';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
     const navigate = useNavigate();
-    const token = window.localStorage.getItem('token');
+    const token = useSelector((state) => state.login.token);
 
     const handleSignOut = () => {
         window.localStorage.removeItem('token');

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginAction from '../redux/actions/login.action';
@@ -12,12 +12,14 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('ici');
         dispatch(LoginAction(email, password));
-
+    };
+    useEffect(() => {
         if (token) {
             navigate('/UserConnected');
         }
-    };
+    });
 
     return (
         <div className="main bg-dark">

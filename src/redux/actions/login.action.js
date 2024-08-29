@@ -1,4 +1,5 @@
 export const LoginAction = (email, password) => {
+    console.log('LoginAction');
     return async (dispatch) => {
         const body = { email, password };
         const response = await fetch(
@@ -14,10 +15,14 @@ export const LoginAction = (email, password) => {
 
         if (response.status === 200) {
             const data = await response.json();
-            dispatch({ type: 'LOGIN_SUCCESS', payload: data.token });
+            console.log(data);
+            return dispatch({
+                type: 'LOGIN_SUCCESS',
+                payload: data.body.token,
+            });
         } else {
-            dispatch({ type: 'LOGIN_FAILURE' });
             alert('Identifiant ou mot de passe incorrect');
+            return dispatch({ type: 'LOGIN_FAILURE' });
         }
     };
 };
