@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import UserConnected from './pages/UserConnected';
 import LoginReducer from './redux/reducers/login.reducer';
+import UserReducer from './redux/reducers/user.reducer';
 
 // REDUX
 import { Provider } from 'react-redux';
@@ -16,6 +17,7 @@ import { configureStore } from '@reduxjs/toolkit';
 const store = configureStore({
     reducer: {
         login: LoginReducer,
+        user: UserReducer,
     },
     devTools: true,
 });

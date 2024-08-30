@@ -58,6 +58,11 @@ body {
     margin-right: 0.5rem;
 }
 
+.main-nav-container {
+    display: flex;
+    gap: 15px;
+}
+
 .main-nav-item:hover {
     text-decoration: underline;
 }

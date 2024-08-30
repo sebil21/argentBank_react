@@ -24,9 +24,18 @@ export default function Header() {
                 </NavLink>
                 <div>
                     {token ? (
-                        <div className="main-nav-item" onClick={handleSignOut}>
-                            <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                            &nbsp;Sign Out
+                        <div className="main-nav-container">
+                            <span>
+                                {/* {firstName}  */}
+                                NOM USER
+                            </span>
+                            <div
+                                className="main-nav-item"
+                                onClick={handleSignOut}
+                            >
+                                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                &nbsp;Sign Out
+                            </div>
                         </div>
                     ) : (
                         <NavLink className="main-nav-item" to="/Login">
