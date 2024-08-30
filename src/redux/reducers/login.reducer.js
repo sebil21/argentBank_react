@@ -8,11 +8,6 @@ const LoginReducer = (state = initialState, action) => {
             ...state,
             token: action.payload,
         };
-    } else if (action.type === 'LOGIN_FAILURE') {
-        return {
-            ...state,
-            token: null,
-        };
     } else if (action.type === 'LOGOUT') {
         return {
             ...state,

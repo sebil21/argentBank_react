@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 export default function EditUser({ onCancel }) {
     // État pour gérer les valeurs des champs du formulaire
     const [formData, setFormData] = useState({
@@ -7,7 +6,6 @@ export default function EditUser({ onCancel }) {
         firstName: '',
         lastName: '',
     });
-
     // Gestion des changements dans les champs du formulaire
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,7 +14,6 @@ export default function EditUser({ onCancel }) {
             [name]: value,
         });
     };
-
     // Gestion de la soumission du formulaire
     const handleSave = (e) => {
         e.preventDefault();
@@ -25,7 +22,6 @@ export default function EditUser({ onCancel }) {
         // Après la sauvegarde, vous pouvez aussi revenir à l'affichage normal
         // ou montrer un message de succès, etc.
     };
-
     return (
         <div className="header">
             <h2>Edit user info</h2>
