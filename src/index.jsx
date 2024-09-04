@@ -12,13 +12,14 @@ import UserReducer from './redux/reducers/user.reducer';
 
 // REDUX
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+const rootReducer = combineReducers({
+    login: LoginReducer,
+    user: UserReducer,
+});
 
 const store = configureStore({
-    reducer: {
-        login: LoginReducer,
-        user: UserReducer,
-    },
+    reducer: rootReducer,
     devTools: true,
 });
 

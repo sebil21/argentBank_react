@@ -1,12 +1,11 @@
 import { useState } from 'react';
 export default function EditUser({ onCancel }) {
-    // État pour gérer les valeurs des champs du formulaire
     const [formData, setFormData] = useState({
         username: '',
         firstName: '',
         lastName: '',
     });
-    // Gestion des changements dans les champs du formulaire
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -14,19 +13,15 @@ export default function EditUser({ onCancel }) {
             [name]: value,
         });
     };
-    // Gestion de la soumission du formulaire
+
     const handleSave = (e) => {
         e.preventDefault();
-        // Logique pour sauvegarder les données ici
-        console.log('Saved data:', formData);
-        // Après la sauvegarde, vous pouvez aussi revenir à l'affichage normal
-        // ou montrer un message de succès, etc.
     };
     return (
         <div className="header">
             <h2>Edit user info</h2>
             <form onSubmit={handleSave} className="edit-user-form">
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="username">User Name : </label>
                     <input
                         type="text"
@@ -36,7 +31,7 @@ export default function EditUser({ onCancel }) {
                         onChange={handleChange}
                         required
                     />
-                </div>
+                </div> */}
                 <div className="form-group">
                     <label htmlFor="firstName">First Name : </label>
                     <input

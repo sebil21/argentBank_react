@@ -1,7 +1,6 @@
 const initialState = {
     firstName: '',
     lastName: '',
-    token: null,
 };
 
 const UserReducer = (state = initialState, action) => {

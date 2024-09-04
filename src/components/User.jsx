@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EditUser from './EditUser';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import UserAction from '../redux/actions/user.action';
+
 export default function User() {
     const [isEditing, setIsEditing] = useState(false);
     const handleEditClick = () => {
@@ -9,6 +13,21 @@ export default function User() {
     const handleCancelClick = () => {
         setIsEditing(false);
     };
+    const token = useSelector((state) => state.login.token);
+    const navigate = useNavigate();
+    console.log(token);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (token == null) {
+            console.log('test navigate');
+            navigate('/Login');
+        } else {
+            console.log('else');
+            dispatch(UserAction(token));
+        }
+    }, [token]);
+
     return (
         <div className="container">
             {isEditing ? (
