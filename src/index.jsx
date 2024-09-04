@@ -7,15 +7,18 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import UserConnected from './pages/UserConnected';
-import LoginReducer from './redux/reducers/login.reducer';
-import UserReducer from './redux/reducers/user.reducer';
 
 // REDUX
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import LoginReducer from './redux/reducers/login.reducer';
+import UserReducer from './redux/reducers/user.reducer';
+import UpdateUserReducer from './redux/reducers/updateUser.reducer';
+
 const rootReducer = combineReducers({
     login: LoginReducer,
     user: UserReducer,
+    updateUser: UpdateUserReducer,
 });
 
 const store = configureStore({

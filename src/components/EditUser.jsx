@@ -1,10 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { UpdateUserAction } from '../redux/actions/updateUser.action';
+
 export default function EditUser({ onCancel }) {
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.login.token);
+    const firstName = useSelector((state) => state.user.firstName);
+    const lastName = useSelector((state) => state.user.lastName);
+    const userName = useSelector((state) => state.user.userName);
+
     const [formData, setFormData] = useState({
-        username: '',
+        userName: '',
         firstName: '',
         lastName: '',
     });
+
+    useEffect(() => {
+        setFormData({
+            userName: userName,
+            firstName: firstName,
+            lastName: lastName,
+        });
+    }, [userName, firstName, lastName]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,22 +33,25 @@ export default function EditUser({ onCancel }) {
 
     const handleSave = (e) => {
         e.preventDefault();
+        dispatch(UpdateUserAction(token, formData.userName));
+        onCancel();
     };
+
     return (
         <div className="header">
             <h2>Edit user info</h2>
             <form onSubmit={handleSave} className="edit-user-form">
-                {/* <div className="form-group">
+                <div className="form-group">
                     <label htmlFor="username">User Name : </label>
                     <input
                         type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
+                        id="userName"
+                        name="userName"
+                        value={formData.userName}
                         onChange={handleChange}
                         required
                     />
-                </div> */}
+                </div>
                 <div className="form-group">
                     <label htmlFor="firstName">First Name : </label>
                     <input

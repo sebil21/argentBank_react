@@ -9,24 +9,24 @@ export default function User() {
     const handleEditClick = () => {
         setIsEditing(true);
     };
-    // Fonction pour revenir au mode d'affichage normal
+
     const handleCancelClick = () => {
         setIsEditing(false);
     };
     const token = useSelector((state) => state.login.token);
     const navigate = useNavigate();
-    console.log(token);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (token == null) {
-            console.log('test navigate');
             navigate('/Login');
         } else {
-            console.log('else');
             dispatch(UserAction(token));
         }
-    }, [token]);
+    }, [token, navigate, dispatch]);
+
+    const firstName = useSelector((state) => state.user.firstName);
+    const lastName = useSelector((state) => state.user.lastName);
 
     return (
         <div className="container">
@@ -39,7 +39,7 @@ export default function User() {
                     <h1>
                         Welcome back
                         <br />
-                        Tony Jarvis!
+                        {firstName} {lastName} !
                     </h1>
                     <button className="edit-button" onClick={handleEditClick}>
                         Edit Name

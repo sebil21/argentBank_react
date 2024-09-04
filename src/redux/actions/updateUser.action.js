@@ -1,30 +1,27 @@
-export const UserAction = (token) => {
+export const UpdateUserAction = (token, userName) => {
     return async (dispatch) => {
         const response = await fetch(
             'http://localhost:3001/api/v1/user/profile',
             {
-                method: 'POST',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
+                body: JSON.stringify({ userName }),
             }
         );
         if (response.ok) {
             const data = await response.json();
-            const userData = {
-                firstName: data.body.firstName,
-                lastName: data.body.lastName,
+            const updatedUserData = {
+                userName: data.body.userName,
             };
             dispatch({
-                type: 'CHANGENAME',
-                payload: userData,
+                type: 'UPDATE_USERNAME',
+                payload: updatedUserData,
             });
         } else {
             alert('Erreur lors de la mise à jour du profil');
         }
     };
 };
-export default UserAction;
-
-// Edition des infos user
