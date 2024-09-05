@@ -60,7 +60,7 @@ export default function EditUser({ onCancel }) {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        required
+                        disabled
                     />
                 </div>
                 <div className="form-group">
@@ -71,7 +71,7 @@ export default function EditUser({ onCancel }) {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        required
+                        disabled
                     />
                 </div>
                 <div className="form-buttons">

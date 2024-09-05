@@ -107,6 +107,11 @@ body {
     font-size: 0.9rem;
 }
 
+input:disabled {
+    background-color: #8f8989;
+    color: #000000;
+}
+
 @media (min-width: 920px) {
     .hero {
         height: 400px;
