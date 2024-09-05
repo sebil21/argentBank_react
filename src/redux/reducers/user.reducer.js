@@ -1,6 +1,7 @@
 const initialState = {
     firstName: '',
     lastName: '',
+    userName: '',
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -9,6 +10,13 @@ const UserReducer = (state = initialState, action) => {
             ...state,
             firstName: action.payload.firstName,
             lastName: action.payload.lastName,
+            userName: action.payload.userName,
+        };
+    }
+    if (action.type === 'UPDATE_USERNAME') {
+        return {
+            ...state,
+            userName: action.payload.userName,
         };
     } else {
         return state;

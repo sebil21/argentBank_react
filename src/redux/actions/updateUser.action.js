@@ -8,7 +8,7 @@ export const UpdateUserAction = (token, userName) => {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({ userName }),
+                body: JSON.stringify({ userName: userName }),
             }
         );
         if (response.ok) {

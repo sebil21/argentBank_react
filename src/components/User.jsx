@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import EditUser from './EditUser';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import UserAction from '../redux/actions/user.action';
+import { UserAction } from '../redux/actions/user.action';
 
 export default function User() {
     const [isEditing, setIsEditing] = useState(false);

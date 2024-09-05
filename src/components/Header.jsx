@@ -8,7 +8,6 @@ export default function Header() {
     const navigate = useNavigate();
     const token = useSelector((state) => state.login.token);
     const userName = useSelector((state) => state.user.userName);
-    const firstName = useSelector((state) => state.user.firstName);
 
     const handleSignOut = () => {
         window.localStorage.removeItem('token');
@@ -30,11 +29,7 @@ export default function Header() {
                 <div>
                     {token ? (
                         <div className="main-nav-container">
-                            <span>
-                                {userName}
-                                {firstName}
-                                {/* ENLEVER FIRSTNAME LORSQUE USERNAME OK */}
-                            </span>
+                            <span>{userName}</span>
                             <div
                                 className="main-nav-item"
                                 onClick={handleSignOut}

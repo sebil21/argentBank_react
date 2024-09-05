@@ -15,6 +15,7 @@ export const UserAction = (token) => {
             const userData = {
                 firstName: data.body.firstName,
                 lastName: data.body.lastName,
+                userName: data.body.userName,
             };
             dispatch({
                 type: 'CHANGENAME',
@@ -26,5 +27,3 @@ export const UserAction = (token) => {
     };
 };
 export default UserAction;
-
-// Edition des infos user
