@@ -25,8 +25,9 @@ export default function User() {
         }
     }, [token, navigate, dispatch]);
 
-    const firstName = useSelector((state) => state.user.firstName);
-    const lastName = useSelector((state) => state.user.lastName);
+    // const firstName = useSelector((state) => state.user.firstName);
+    // const lastName = useSelector((state) => state.user.lastName);
+    const userName = useSelector((state) => state.user.userName);
 
     return (
         <div className="container">
@@ -39,7 +40,8 @@ export default function User() {
                     <h1>
                         Welcome back
                         <br />
-                        {firstName} {lastName} !
+                        {/* {firstName} {lastName}  */}
+                        {userName} !
                     </h1>
                     <button className="edit-button" onClick={handleEditClick}>
                         Edit Name

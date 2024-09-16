@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { LogoutAction } from '../redux/actions/login.action';
-import LogoArgentBank from '../assets/argentBankLogo.png';
+import LogoArgentBank from '../assets/argentBankLogo.webp';
 
 export default function Header() {
     const dispatch = useDispatch();
